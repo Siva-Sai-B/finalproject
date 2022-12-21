@@ -10,6 +10,7 @@ from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes,force_str
 from django.core.mail import EmailMessage,send_mail
+from authentication.models import *
 
 # Create your views here.
 def home(request):
@@ -94,3 +95,28 @@ def activate(request,uidb64,token):
         return redirect('home')
     else:
         return render(request,'authentication/activation_failed.html')
+def results(request):
+    return render(request,'authentication/results.html')
+def sem1(request):
+    result=Sem1.objects.all()
+    return render(request,'results/sem1.html',{'result':result})
+
+def sem2(request):
+    result=Sem1.objects.all()
+    return render(request,'results/sem1.html',{'result':result})
+def sem3(request):
+    result=Sem1.objects.all()
+    return render(request,'results/sem1.html',{'result':result})
+def sem4(request):
+    result=Sem1.objects.all()
+    return render(request,'results/sem1.html',{'result':result})
+def sem5(request):
+    result=Sem1.objects.all()
+    return render(request,'results/sem1.html',{'result':result})
+def sem6(request):
+    result=Sem1.objects.all()
+    return render(request,'results/sem1.html',{'result':result})
+def gvp(request):
+    return render(request,'College/about.html')
+
+

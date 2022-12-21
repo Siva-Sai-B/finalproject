@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href={%static "css/tables.css" %}>
+</head>
+<body style="background:rgb(220, 222, 220)">
+    <br>
+    {% if result %}
+    <table border="3" height="50%" width="50%"
+align=center cellpadding ="10" >
+        <thead>
+            
+            <th style=" border:1px solid black;"> Student_RollNo</th>
+            <th style=" border:1px solid black;"> Student_Name</th>
+            <th style=" border:1px solid black;">Physics </th>
+            <th style=" border:1px solid black;"> Maths</th>
+            <th style=" border:1px solid black;"> C</th>
+            <th style=" border:1px solid black;"> Drawing</th>
+            <th style=" border:1px solid black;"> ES</th>
+        </thead>
+     {% for res in result %}
+     <tr>
+   <td align=center style=" border:1px solid black;">
+    {{res.Student_Roll}}
+   </td >
+   
+   <td  align=center style=" border:1px solid black;">
+    {{res.Student_Name}}
+   </td>
+   <td align=center style=" border:1px solid black;">
+    {{res.Physics}}
+   </td >
+   <td align=center style=" border:1px solid black;">
+    {{res.C}}
+   </td >
+   <td align=center style=" border:1px solid black;">
+    {{res.Maths}}
+   </td >
+   <td align=center style=" border:1px solid black;">
+    {{res.Drawing}}
+   </td >
+   <td align=center style=" border:1px solid black;">
+    {{res.ES}}
+   </td >
+     </tr>
+{%endfor%}
+    </table>
+{% else %}
+<p>No data to display</p>
+{%endif%}
+
+    
+</body>
+</html>

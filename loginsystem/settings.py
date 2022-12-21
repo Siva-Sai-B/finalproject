@@ -124,7 +124,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "statics")
 STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -135,3 +134,4 @@ EMAIL_HOST_USER = '19131a0418@gvpce.ac.in'
 EMAIL_HOST_PASSWORD = '6302618707@11'
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'staticfiles')]
