@@ -47,31 +47,29 @@ def signup(request):
             '''
             if User.objects.filter(username=username).exists():
                 messages.info(request,'Username already Exists. Kindly provide another User Name')
-                return redirect('signup')
+                return redirect('auth/signup')
         
             elif User.objects.filter(email=email).exists():
                 
                 messages.info(request,'Email already Exists. Kindly provide another Email')
-                return redirect('signup')
+                return redirect('auth/signup')
             '''
         else:
             messages.info(request,'Passwords not matching. Kindly check and re-enter')
-            return redirect('/signup')
+            return redirect('auth/signup')
         myuser=User.objects.create_user(username,email,pass1)
         myuser.first_name=fname
         myuser.last_name=lname
         myuser.is_active=True
         myuser.save()
-        messages.success(request,"Your Account has been successfully created. We have sent you a conformation  Email. Please confirm your Email to activate your account")
-        sub="Welcome to Login System!!"
-        mes="Hello"+myuser.first_name+"!!\n"+"Thank You for visiting  our website \"System Login\" We have sent you a conformation mail. Please confirm your Email in order to activate your account on System Login \n\n Thank You \n "+myuser.first_name
+        messages.success(request,"Your Account has been successfully created. We have sent you an indication Email. ")
+        sub="Welcome to Login System!!" 
+        mes="Hello "+myuser.first_name+"!!\n"+"Thank You for visiting  our website \"System Login\" We have sent you this as an Indication mail. \n\n Thank You \n "+myuser.first_name
         from_email=settings.EMAIL_HOST_USER
         to_list=[myuser.email]
         send_mail(sub,mes,from_email,to_list,fail_silently=True)
-
         current_site=get_current_site(request)
         email_subject="Confirm your email @ Login System"
-       
         email=EmailMessage(
             email_subject,settings.EMAIL_HOST_USER,[myuser.email])
         email.fail_silently=True

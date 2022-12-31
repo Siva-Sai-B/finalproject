@@ -27,7 +27,7 @@
         </div>
         {% endfor %}
 
-        <form action="/signin" method="POST">
+        <form action="signin" method="POST">
 
             {% csrf_token %}<!-- csrf_ token is used to prevent malicious attacks prevents loading a url from a site where they previously authenticated -->
             <label for="username" class="form-label">User Name</label><br>

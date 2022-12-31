@@ -33,11 +33,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'crispy_forms',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'authentication'
+    'authentication',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -132,6 +134,10 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = '19131a0418@gvpce.ac.in'
 EMAIL_HOST_PASSWORD = '6302618707@11'
+
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'staticfiles')]
+LOGIN_URL='signin'
+LOGIN_REDIRECT_URL='blog_home'
+CRISPY_TEMPLATE_PACK='bootstrap4'
