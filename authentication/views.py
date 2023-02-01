@@ -56,7 +56,7 @@ def signup(request):
             '''
         else:
             messages.info(request,'Passwords not matching. Kindly check and re-enter')
-            return redirect('auth/signup')
+            return redirect('signup')
         myuser=User.objects.create_user(username,email,pass1)
         myuser.first_name=fname
         myuser.last_name=lname

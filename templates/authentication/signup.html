@@ -10,6 +10,7 @@
 </head>
 
 <body style="background:rgb(220, 222, 220); text-align:center ">
+   
     <div class="container-fluid" style="max-width:50%">
         <h1>Welcome To SignUp Page</h1>
         {% for message in messages %}
@@ -20,7 +21,7 @@
             </button>
         </div>
         {% endfor %}
-        <form action="signup" method="post">
+        <form name= "form1" action="signup" method="post">
             {% csrf_token %}
             <label for="username" class="form-label">User Name</label><br>
             <input type="text" id="username" class="form-control" name="username" placeholder="Enter User Name"><br>
@@ -34,11 +35,39 @@
             <input type="text" id="pass1" name="pass1" placeholder="Enter Password" class="form-control"><br>
             <label for="pass1_" class="form-label">Confirm Password</label>
             <input type="text" id="pass1_" name="pass1_" placeholder="Confirm Password" class="form-control"><br><br>
-            <button type="submit" class="btn btn-outline-secondary btn-lg align-self-center">Sign Up</button>
+            <button id="submit" type="submit" class="btn btn-outline-secondary btn-lg align-self-center">Sign Up</button>
 
         </form>
     </div>
 
 </body>
+<script language="JavaScript">
+   
+    document.getElementById("submit").addEventListener("mouseover",validate)
+    function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+    function validate(event)
+    {
+    username=document.forms("form1").username.value;
+    pass1=document.forms("form1").pass1.value;
+    pass2=document.forms("form1").pass1_.value;
+    document.writeln(pass1,pass2)
+    if (pass1 === pass2)
+    {
+        window.alert("passwords  matching");
+    }
+    else{
+        window.alert("passwords not matching");
+    }
+    return;
+   }
+
+
+</script>
 
 </html>
